@@ -1,0 +1,14 @@
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\MathApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\MathApp.AssemblyInfoInputs.cache
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\MathApp.AssemblyInfo.cs
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\MathApp.csproj.CoreCompileInputs.cache
+D:\Projects_cplus\MathApp\bin\Debug\net8.0\MathApp.exe
+D:\Projects_cplus\MathApp\bin\Debug\net8.0\MathApp.deps.json
+D:\Projects_cplus\MathApp\bin\Debug\net8.0\MathApp.runtimeconfig.json
+D:\Projects_cplus\MathApp\bin\Debug\net8.0\MathApp.dll
+D:\Projects_cplus\MathApp\bin\Debug\net8.0\MathApp.pdb
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\MathApp.dll
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\refint\MathApp.dll
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\MathApp.pdb
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\MathApp.genruntimeconfig.cache
+D:\Projects_cplus\MathApp\obj\Debug\net8.0\ref\MathApp.dll
