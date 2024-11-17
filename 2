@@ -1,0 +1,236 @@
+using System;
+using System.IO;
+
+struct Price
+{
+    public string ProductName;
+    public string SupplierName;
+    public double ProductPrice;
+    public int Quantity;
+}
+
+class Program
+
+{
+    static Price[] arrayProducts;
+
+    static void Main()
+    {
+
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+        int reply;
+        while (true) {
+            Console.WriteLine("<-------------------------------------------------------->" +
+                              "\n|      Введите какую функцию хотите выполнить            |" +
+                              "\n|          1 - ввод данных с клавиатуры                  |" +
+                              "\n|       2 - ввод данных с текстового файла               |" +
+                              "\n| 3 - вывод записей по алфавиту по названию поставщиков  |" +
+                              "\n|   4 - информация о товаре, введеная с клавиатуры       |" +
+                              "\n| 5 - Вывести общую сумму стоимости товаров с клавиатуры |" +
+                              "\n|              9 - выйти из программы                    |" +
+                              "\n<-------------------------------------------------------->");
+            string input = Console.ReadLine();
+            if (int.TryParse(input, out reply))
+            {
+                if (reply == 1)
+                {
+
+                    InputFromKeyboard();
+                }
+                if (reply == 2) {
+                    InputFromFile();
+                }
+                if (reply == 3)
+                {
+                    OutputBySuppliers();
+                }
+
+                if (reply == 4)
+                {
+                    OutputByProductName();
+                }
+                if (reply == 5) 
+                {
+                    OutputBySupplierName();
+                }
+
+                if (reply == 9)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Выход из программы!");
+                    break;
+                }
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Ошибка: Некорректный ввод!");
+                
+            }
+
+        }
+    }
+    static void InputFromKeyboard()
+    {
+        Console.Clear();
+
+        Price product = new Price();
+        int numbersOfProducts;
+        Console.Write("Сколько товаров хотите добавить?: ");
+        while (!int.TryParse(Console.ReadLine(), out numbersOfProducts) || numbersOfProducts < 0)
+        {
+            Console.WriteLine("Введите положительное число: ");
+        }
+        arrayProducts = new Price[numbersOfProducts];
+
+        for (int i = 0; i < numbersOfProducts; i++)
+        {
+            Console.WriteLine($"\nВведите название товара - {i + 1}: ");
+            product.ProductName = Console.ReadLine();
+            Console.WriteLine("Введите имя поставщика: ");
+            product.SupplierName = Console.ReadLine();
+            Console.WriteLine("Введите цену товара: ");
+            while (!double.TryParse(Console.ReadLine(), out product.ProductPrice) || product.ProductPrice <= 0)
+            {
+                Console.WriteLine("Неверный ввод цены, введите положительное число: ");
+            }
+            Console.WriteLine("Введите количество товаров: ");
+            while (!int.TryParse(Console.ReadLine(), out product.Quantity) || product.Quantity < 0)
+            {
+                Console.WriteLine("Введите ноль или положительное число товаров: ");
+            }
+            arrayProducts[i] = product;
+        }
+        Console.Clear();
+    }
+    static void InputFromFile()
+    {
+        Console.Clear();
+
+        Console.Write("Введите путь к текстовому файлу: ");
+        string filePath = Console.ReadLine();
+
+        if (!File.Exists(filePath))
+        {
+            Console.WriteLine("Файл не найден. Проверьте путь.");
+            return;
+        }
+        try
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            arrayProducts = new Price[lines.Length];
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] fields = lines[i].Split(';');
+                if (fields.Length != 4 ||
+                    !double.TryParse(fields[2], out double price) ||
+                    !int.TryParse(fields[3], out int quantity))
+                {
+                    Console.WriteLine($"Ошибка в строке {i + 1}: неверный формат данных.");
+                    continue;
+                }
+
+                arrayProducts[i] = new Price
+                {
+                    ProductName = fields[0],
+                    SupplierName = fields[1],
+                    ProductPrice = price,
+                    Quantity = quantity
+                };
+            }
+
+            Console.WriteLine("Данные успешно загружены из файла!");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Произошла ошибка при чтении файла: {ex.Message}");
+        }
+    }
+    static void OutputBySuppliers()
+    {
+        Console.Clear();
+        if (arrayProducts == null || arrayProducts.Length == 0) {
+            Console.Clear();
+            Console.WriteLine("Ошибка: введите данные перед тем как обратиться к данной функции!");
+            return;
+        }
+        // StringComparison.OrdinalIgnoreCase - параметр, который игнорируют регистры (samsung, Samsung)
+        Array.Sort(arrayProducts, (x, y) => string.Compare(x.SupplierName, y.SupplierName, StringComparison.OrdinalIgnoreCase));
+        Console.WriteLine("Вывод записей, упорядоченных в алфавитном порядке названий поставщиков: ");
+
+        for (int i = 0; i < arrayProducts.Length; i++)
+        {
+            Console.WriteLine($"Товар #{i + 1}:");
+            Console.WriteLine($"Название: {arrayProducts[i].ProductName}");
+            Console.WriteLine($"Поставщик: {arrayProducts[i].SupplierName}");
+            Console.WriteLine($"Цена: {arrayProducts[i].ProductPrice} руб.");
+            Console.WriteLine($"Количество: {arrayProducts[i].Quantity}");
+            Console.WriteLine(new string('-', 25));
+        }
+    }
+    static void OutputByProductName()
+    {
+        if (arrayProducts == null || arrayProducts.Length == 0)
+        {
+            Console.Clear();
+            Console.WriteLine("Ошибка: введите данные перед тем как обратиться к данной функции!");
+            return;
+        }
+        Console.Clear();
+
+        Console.WriteLine("Введите имя товара: ");
+        string searchProduct = Console.ReadLine();
+        bool found = false;
+        for (int i = 0; i < arrayProducts.Length; i++)
+        {
+            if (string.Equals(arrayProducts[i].ProductName, searchProduct))
+            {
+                found = true;   
+                Console.WriteLine($"Товар #{i + 1}:");
+                Console.WriteLine($"Название: {arrayProducts[i].ProductName}");
+                Console.WriteLine($"Поставщик: {arrayProducts[i].SupplierName}");
+                Console.WriteLine($"Цена: {arrayProducts[i].ProductPrice} руб.");
+                Console.WriteLine($"Количество: {arrayProducts[i].Quantity}");
+                break;
+            }
+            
+        }
+       
+
+        if (!found)
+        {
+            Console.WriteLine("Товар с таким названием не найден.");
+        }
+    }
+
+    static void OutputBySupplierName()
+    {
+        
+        if (arrayProducts == null || arrayProducts.Length == 0)
+        {
+            Console.Clear();
+            Console.WriteLine("Ошибка: введите данные перед тем как обратиться к данной функции!");
+            return;
+        }
+        Console.Clear();
+        Console.WriteLine("Введите имя поставщика, чтобы вывести полную ее стоимость: ");
+        string searchSupplierName = Console.ReadLine();
+        bool found = false;
+        for (int i = 0; i < arrayProducts.Length; i++)
+        {
+            if (string.Equals(arrayProducts[i].SupplierName, searchSupplierName))
+            {
+                found = true;
+                Console.WriteLine(new string('-', 25));
+                Console.WriteLine($"Товар #{i+1}:");
+                Console.WriteLine($"Название: {arrayProducts[i].ProductName}");
+                Console.WriteLine($"Поставщик: {arrayProducts[i].SupplierName}");
+                Console.WriteLine($"Общая стоимость товара: {arrayProducts[i].ProductPrice * arrayProducts[i].Quantity} руб.");
+                Console.WriteLine(new string('-', 25));
+                break;
+            }
+        }
+        if (!found) { Console.WriteLine("Поставщик с таким именем не найден!"); }
+    }
+}
