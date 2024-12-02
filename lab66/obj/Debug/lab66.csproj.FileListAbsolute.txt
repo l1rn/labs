@@ -1,0 +1,8 @@
+D:\Student\ИП-302\Таксатов\c# control\lab66\bin\Debug\lab66.exe.config
+D:\Student\ИП-302\Таксатов\c# control\lab66\bin\Debug\lab66.exe
+D:\Student\ИП-302\Таксатов\c# control\lab66\bin\Debug\lab66.pdb
+D:\Student\ИП-302\Таксатов\c# control\lab66\obj\Debug\lab66.csproj.AssemblyReference.cache
+D:\Student\ИП-302\Таксатов\c# control\lab66\obj\Debug\lab66.csproj.SuggestedBindingRedirects.cache
+D:\Student\ИП-302\Таксатов\c# control\lab66\obj\Debug\lab66.csproj.CoreCompileInputs.cache
+D:\Student\ИП-302\Таксатов\c# control\lab66\obj\Debug\lab66.exe
+D:\Student\ИП-302\Таксатов\c# control\lab66\obj\Debug\lab66.pdb
