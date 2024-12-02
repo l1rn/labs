@@ -1,0 +1,8 @@
+D:\Student\ИП-302\Таксатов\c# control\55\bin\Debug\55.exe.config
+D:\Student\ИП-302\Таксатов\c# control\55\bin\Debug\55.exe
+D:\Student\ИП-302\Таксатов\c# control\55\bin\Debug\55.pdb
+D:\Student\ИП-302\Таксатов\c# control\55\obj\Debug\lab55.csproj.AssemblyReference.cache
+D:\Student\ИП-302\Таксатов\c# control\55\obj\Debug\lab55.csproj.SuggestedBindingRedirects.cache
+D:\Student\ИП-302\Таксатов\c# control\55\obj\Debug\lab55.csproj.CoreCompileInputs.cache
+D:\Student\ИП-302\Таксатов\c# control\55\obj\Debug\55.exe
+D:\Student\ИП-302\Таксатов\c# control\55\obj\Debug\55.pdb
