@@ -1,0 +1,15 @@
+D:\Student\ИП-302\Таксатов\c# control\lab7\bin\Debug\net6.0\lab7.exe
+D:\Student\ИП-302\Таксатов\c# control\lab7\bin\Debug\net6.0\lab7.deps.json
+D:\Student\ИП-302\Таксатов\c# control\lab7\bin\Debug\net6.0\lab7.runtimeconfig.json
+D:\Student\ИП-302\Таксатов\c# control\lab7\bin\Debug\net6.0\lab7.dll
+D:\Student\ИП-302\Таксатов\c# control\lab7\bin\Debug\net6.0\lab7.pdb
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\lab7.csproj.AssemblyReference.cache
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\lab7.GeneratedMSBuildEditorConfig.editorconfig
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\lab7.AssemblyInfoInputs.cache
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\lab7.AssemblyInfo.cs
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\lab7.csproj.CoreCompileInputs.cache
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\lab7.dll
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\refint\lab7.dll
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\lab7.pdb
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\lab7.genruntimeconfig.cache
+D:\Student\ИП-302\Таксатов\c# control\lab7\obj\Debug\net6.0\ref\lab7.dll
